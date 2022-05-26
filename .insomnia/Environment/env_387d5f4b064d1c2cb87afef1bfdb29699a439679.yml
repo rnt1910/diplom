@@ -1,0 +1,14 @@
+_id: env_387d5f4b064d1c2cb87afef1bfdb29699a439679
+type: Environment
+parentId: wrk_5f4bfdd850fd4e4fb279369bf35fc249
+modified: 1653564845633
+created: 1653564725146
+name: Base Environment
+data:
+  URL: http://172.20.10.2:4000
+dataPropertyOrder:
+  "&":
+    - URL
+color: null
+isPrivate: false
+metaSortKey: 1653564725146
