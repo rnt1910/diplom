@@ -1,0 +1,37 @@
+@import "../../responsive/Responsive"
+
+.outlined
+    cursor: pointer
+    padding: 16px
+    margin-right: 10px
+    border-radius: 1000px
+    border: 1px solid black
+    font-size: calc(14px + 0.5vmin)
+    +responsive(mobile)
+        margin-right: 0
+        margin-bottom: 10px
+        display: flex
+        justify-content: center
+        align-items: center
+
+    &:hover
+        background: black
+        color: white
+
+.colored
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 16px
+    margin-right: 10px
+    border-radius: 1000px
+    background: var(--primary)
+    color: white
+    width: 100%
+    font-size: calc(14px + 0.5vmin)
+    cursor: pointer
+
+
+    &:hover
+        box-shadow: 3px 3px 15px rgba(0,0,0,0.4)
+        color: white

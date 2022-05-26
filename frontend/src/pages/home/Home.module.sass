@@ -1,0 +1,76 @@
+@import "../../responsive/Responsive"
+
+.layout
+    display: flex
+    flex-direction: column
+    align-items: center
+
+    .container
+        width: 80%
+
+        .welcome
+            display: flex
+            flex-direction: row
+            align-items: center
+            position: relative
+            height: 100vh
+
+            .background
+                width: 50%
+                height: auto
+                +responsive(big-tablet)
+                    display: none
+
+            .title
+                font-size: calc(18px + 3vmin)
+                +responsive(mobile)
+                    text-align: center
+
+            .buttons
+                display: flex
+                flex-direction: row
+                +responsive(mobile)
+                    flex-direction: column
+
+            .description
+                margin: calc(14px + 2vmin) 0
+                font-size: calc(12px + 2vmin)
+                +responsive(mobile)
+                    text-align: center
+
+            .counters
+                display: flex
+                flex-direction: row
+                +responsive(mobile)
+                    flex-direction: column
+
+        .content
+            background: white
+            box-shadow: 0 -5px 30px rgba(0,0,0,0.3)
+            width: 100%
+            display: flex
+            justify-content: center
+            align-items: center
+            border-radius: 30px
+
+
+            .description
+                font-size: calc(12px + 2vmin)
+
+            .cards
+                display: flex
+                flex-direction: row
+                flex-wrap: wrap
+                justify-content: center
+
+            .feedback
+                display: flex
+                flex-direction: row
+                flex-wrap: wrap
+                justify-content: center
+
+
+.bluetext
+    color: var(--primary)
+.pinktext
+    color: var(--secondary)

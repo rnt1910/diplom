@@ -1,0 +1,40 @@
+.container
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100vh
+    background: linear-gradient(90deg, rgba(1, 90, 255, 0.25) 0%, rgba(249, 17, 86, 0.25) 100%)
+
+    .form
+        display: flex
+        flex-direction: column
+        padding: 30px 100px
+        backdrop-filter: blur(16px) saturate(180%)
+        -webkit-backdrop-filter: blur(16px) saturate(180%)
+        background: rgba(255, 255, 255, 0.4)
+        border-radius: 12px
+        border: 2px solid rgba(249, 17, 86, 0.3)
+
+        .title
+            font-size: calc(12px + 2vmin)
+            margin: 20px 0
+            color: white
+            text-shadow: 5px 5px 5px  rgba(0,0,0,0.5)
+
+
+        .link
+            text-decoration: none
+            display: flex
+            align-self: center
+            margin-top: 30px
+            font-size: calc(4px + 1vmin)
+
+    .blur
+        position: absolute
+        margin: 0 800px
+        transform: scale(1.6)
+        filter: blur(20px)
+    .image
+        position: absolute
+        margin: 0 800px
+        z-index: 1

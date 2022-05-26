@@ -1,0 +1,19 @@
+@import "../../responsive/Responsive"
+
+.counter
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    margin-right: calc(70px + 2vmin)
+    margin-bottom: 60px
+    +responsive(mobile)
+        margin-right: 0
+
+
+    .count
+        font-size: calc(36px + 1vmin)
+        font-weight: bold
+
+    .title
+        font-size: calc(14px + 1vmin)

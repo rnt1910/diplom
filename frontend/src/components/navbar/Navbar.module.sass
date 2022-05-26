@@ -1,0 +1,93 @@
+@import "../../responsive/Responsive"
+
+.navbar
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 999
+    background: white
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3)
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 30px
+
+    .container
+        display: flex
+        justify-content: space-between
+        align-items: center
+        width: 80%
+
+        .logo
+            text-decoration: none
+            color: var(--primary)
+            font-weight: 900
+            font-size: calc(24px + 1vmin)
+            text-align: center
+
+        .active
+            display: flex
+            flex-direction: column
+            align-items: flex-end
+            padding: 0 3vmin
+            width: 500px
+            position: fixed
+            top: 0
+            right: 0
+            z-index: 1
+            background: white
+            height: 100%
+            box-shadow: -15px 0 30px rgba(0,0,0,0.3)
+
+
+        .links
+            display: flex
+            flex-direction: row
+            align-items: center
+            +responsive(mobile)
+                display: none
+
+
+        .link
+            text-decoration: none
+            color: black
+            font-size: calc(10px + 1vmin)
+            padding: 0 2vmin
+
+            &:hover
+                color: var(--primary)
+
+        .linkMobile
+            text-decoration: none
+            color: black
+            font-size: calc(10px + 6vmin)
+            padding: 2vmin 0
+
+            &:hover
+                color: var(--primary)
+
+
+        .burger
+            display: none
+            +responsive(mobile)
+                display: block
+
+        .cross
+            position: absolute
+            right: 480px
+            z-index: 2
+
+        .avatar
+            width: 75px
+            height: 75px
+            border-radius: 75px 
+
+.logout 
+    background: none
+    outline: none
+    border: none
+    font-size: calc(10px + 6vmin)
+    cursor: pointer
+    padding: 2vmin 0
+    color: var(--primary)
