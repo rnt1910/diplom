@@ -1,0 +1,31 @@
+_id: req_832c5868dcbc4b4d9a5263936b934f3e
+type: Request
+parentId: wrk_5f4bfdd850fd4e4fb279369bf35fc249
+modified: 1653565076003
+created: 1653564725151
+url: "{{ _.URL }}/api/courses/add"
+name: New Request
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: >-
+    {
+        "title": "React JS фундаментальный курс от А до Я",
+        "video": "GNrdg3PzpJQ",
+        "description": "React Полный курс от А до Я. Рассмотрим основные концепции и разработаем функционал, который встречается в каждом приложении."
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_615e7ec9e419413d86852b589e5ed9ac
+authentication: {}
+metaSortKey: -1653564725151
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
