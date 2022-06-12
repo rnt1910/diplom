@@ -8,6 +8,7 @@ const User = sequelize.define(
 		email: { type: DataTypes.STRING, unique: true, allowNull: false },
 		password: { type: DataTypes.STRING, allowNull: false },
 		username: { type: DataTypes.STRING, allowNull: false, unique: true },
+		role: { type: DataTypes.ENUM('admin', 'user'), defaultValue: 'user' },
 	},
 	{ timestamps: false }
 )
@@ -19,6 +20,7 @@ const Course = sequelize.define(
 		title: { type: DataTypes.STRING, allowNull: false },
 		video: { type: DataTypes.STRING, allowNull: false },
 		description: { type: DataTypes.STRING, allowNull: false },
+		preview: { type: DataTypes.STRING, allowNull: false },
 	},
 	{ timestamps: false }
 )

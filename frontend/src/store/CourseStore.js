@@ -1,4 +1,4 @@
-import { makeAutoObservable, toJS } from 'mobx'
+import { makeAutoObservable } from 'mobx'
 import { $authHost, $host } from '../http'
 
 export default class CourseStore {
@@ -57,6 +57,28 @@ export default class CourseStore {
 			const { data } = await $host.get(`api/courses/id?id=${id}`)
 			this.setCourse(data)
 			return data
+		} catch (error) {
+			console.log(error.message)
+		}
+	}
+
+	async createCourse(form) {
+		try {
+			const { data } = await $authHost.post(`api/courses/add`, form, {
+				headers: { 'Content-Type': 'multipart/form-data' },
+			})
+			this.setCourse(prev => [...prev, data])
+			return data
+		} catch (error) {
+			console.log(error.message)
+		}
+	}
+
+	async removeCourse(id) {
+		try {
+			await $authHost.get(`api/courses/id/remove?id=${id}`)
+			this.setUserCourses(this.userCourses.filter(item => item.id != id))
+			return this.userCourses
 		} catch (error) {
 			console.log(error.message)
 		}

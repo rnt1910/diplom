@@ -15,6 +15,8 @@ import About from '../pages/about/About'
 import Companies from '../pages/companies/Companies'
 import Registration from '../pages/regisatration/Registration'
 import CoursePage from '../pages/course_page/CoursePage'
+import AdminRoute from './AdminRoute'
+import AdminPanel from '../pages/admin/AdminPanel'
 
 const RouterList = observer(() => {
 	const { userStore } = useContext(Context)
@@ -68,6 +70,16 @@ const RouterList = observer(() => {
 				element={
 					<PrivateRoute>
 						<Study />
+					</PrivateRoute>
+				}
+			/>
+			<Route
+				path={'/courses/dashboard'}
+				element={
+					<PrivateRoute>
+						<AdminRoute>
+							<AdminPanel />
+						</AdminRoute>
 					</PrivateRoute>
 				}
 			/>

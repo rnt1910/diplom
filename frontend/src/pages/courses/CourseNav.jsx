@@ -4,8 +4,6 @@ import useAuth from '../../hooks/useAuth'
 import { Context } from '../../main'
 import styles from './CourseNav.module.sass'
 
-const re = new RegExp('/courses/course/^[0-9]+$')
-
 function CourseNav() {
 	const { user } = useAuth()
 	const { userStore } = useContext(Context)
@@ -22,8 +20,23 @@ function CourseNav() {
 			</Link>
 			<div>
 				<h2 className={styles.user}>{user.username}</h2>
+				<h3 className={styles.email}>Роль: {user.role}</h3>
 				<h3 className={styles.email}>{user.email}</h3>
 				<hr />
+				{user.role === 'admin' && (
+					<Link to='/courses/dashboard' className={styles.link}>
+						<h2
+							className={styles.text}
+							style={
+								pathname === '/courses/dashboard'
+									? { fontWeight: 700 }
+									: { fontWeight: 100 }
+							}
+						>
+							Создать курс
+						</h2>
+					</Link>
+				)}
 				<Link to='/courses' className={styles.link}>
 					<h2
 						className={styles.text}

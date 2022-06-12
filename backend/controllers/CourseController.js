@@ -20,21 +20,18 @@ class CourseController {
 		return res.json(courses)
 	}
 
-	async addCourse(req, res, next) {
-		const { title, video, description } = req.body
-		const course = await Course.create({
-			title,
-			video,
-			description,
-		})
-		return res.json(course)
-	}
-
 	async addCourseToUser(req, res, next) {
 		const { id } = req.query
 		const course = await Course.findByPk(id)
 		await course.setUsers(req.user.id)
 		return res.json(course)
+	}
+
+	async removeCourse(req, res, next) {
+		const { id } = req.query
+		await UserCourse.destroy({ where: { courseId: id } }).then(() =>
+			res.json('success')
+		)
 	}
 }
 

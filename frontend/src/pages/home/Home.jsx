@@ -38,9 +38,9 @@ function Home() {
 					<div className={styles.welcome}>
 						<div>
 							<h1 className={styles.title}>
-								Образовательная
+								Информационная
 								<br />
-								плафторма
+								система
 							</h1>
 
 							<div className={styles.buttons}>

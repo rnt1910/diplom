@@ -17,7 +17,7 @@ app.use(
 	})
 )
 app.use('/api', router)
-
+app.use('/previews', express.static(__dirname + '/previews'))
 app.use(errorHandler)
 
 const start = async () => {

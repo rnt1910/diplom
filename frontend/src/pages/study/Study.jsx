@@ -1,17 +1,20 @@
-import { useContext, useEffect, useState } from 'react'
+import { toJS } from 'mobx'
+import { observer } from 'mobx-react-lite'
+import { useContext, useEffect, useLayoutEffect, useState } from 'react'
+import { LOCALHOST } from '../../../config'
 import { Context } from '../../main'
 import Card from '../courses/Card'
 import CourseNav from '../courses/CourseNav'
-import { PREVIEWS } from '../courses/Courses'
 import styles from '../courses/Courses.module.sass'
+import DeleteCross from '../courses/DeleteCross'
 
-function Study() {
+const Study = observer(() => {
 	const { courseStore } = useContext(Context)
 	const [userCourses, setUserCourses] = useState([])
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		const getUserCourses = async () => {
-			await courseStore.getUserCourses().then(res => setUserCourses(res))
+			await courseStore.getUserCourses()
 		}
 		getUserCourses()
 	}, [])
@@ -21,8 +24,8 @@ function Study() {
 			<CourseNav />
 			<div className={styles.content}>
 				<div className={styles.courses}>
-					{userCourses &&
-						userCourses.map((item, index) => {
+					{courseStore.userCourses.length > 0 &&
+						toJS(courseStore.userCourses).map((item, index) => {
 							return (
 								<Card
 									key={item.id}
@@ -30,14 +33,18 @@ function Study() {
 									title={item.title}
 									video={item.video}
 									description={item.description}
-									preview={PREVIEWS[index]}
-								/>
+									preview={LOCALHOST + item.preview}
+								>
+									<DeleteCross
+										onClick={() => courseStore.removeCourse(item.id)}
+									/>
+								</Card>
 							)
 						})}
 				</div>
 			</div>
 		</>
 	)
-}
+})
 
 export default Study

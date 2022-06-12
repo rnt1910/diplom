@@ -10,9 +10,12 @@
 	background: rgba(240, 240, 240, 1)
 	box-shadow: 0 0 30px rgba(0, 0, 0, 0.3 )
 	border-radius: 20px
-	cursor: pointer
-	
+	position: relative
 
+	.cross
+		position: absolute
+		top: 65px
+		right: 30px
 
 	.title
 		font-size: 32px
@@ -36,4 +39,6 @@
 		border: none
 		border-radius: 20px
 		cursor: pointer
+		&:hover
+			background: var(--secondary)
 	

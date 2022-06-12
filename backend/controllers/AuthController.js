@@ -9,6 +9,7 @@ const generateJwt = (id, email) => {
 
 class AuthController {
 	async registration(req, res, next) {
+		let role = 'user'
 		const { email, password, username } = req.body
 		if (!email || !password) {
 			return next(ApiError.badRequest('Некорректный email или пароль'))
@@ -19,8 +20,16 @@ class AuthController {
 				ApiError.badRequest('Пользователь с таким email уже существует')
 			)
 		}
+		if (username === 'admin') {
+			role = 'admin'
+		}
 		const hashPassword = await bcrypt.hash(password, 5)
-		const user = await User.create({ email, password: hashPassword, username })
+		const user = await User.create({
+			email,
+			password: hashPassword,
+			username,
+			role,
+		})
 		const token = generateJwt(user.id, user.email)
 		return res.json({ token, user })
 	}

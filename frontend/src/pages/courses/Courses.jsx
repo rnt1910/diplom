@@ -1,15 +1,9 @@
 import Card from './Card'
 import CourseNav from './CourseNav'
 import styles from './Courses.module.sass'
-
-import backend from '../../assets/backend.png'
-import java from '../../assets/java.png'
-import js from '../../assets/js.png'
-import react from '../../assets/react.png'
 import { useContext, useEffect, useState } from 'react'
 import { Context } from '../../main'
-
-export const PREVIEWS = [java, js, react, backend]
+import { LOCALHOST } from '../../../config'
 
 function Courses() {
 	const { courseStore } = useContext(Context)
@@ -36,7 +30,7 @@ function Courses() {
 									title={item.title}
 									video={item.video}
 									description={item.description}
-									preview={PREVIEWS[index]}
+									preview={LOCALHOST + item.preview}
 								/>
 							)
 						})}
