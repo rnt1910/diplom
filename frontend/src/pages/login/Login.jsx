@@ -56,10 +56,6 @@ const Login = observer(() => {
 				<Link to={'/registration'} className={styles.link}>
 					Ещё нет профиля? Зарегистрируйтесь
 				</Link>
-
-				<Link to={'/reset'} className={styles.link}>
-					Не помню пароль
-				</Link>
 			</div>
 		</div>
 	)

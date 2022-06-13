@@ -17,8 +17,6 @@ const Navbar = observer(() => {
 		setIsOpened(!isOpened)
 	}
 
-	const closeBurger = () => setIsOpened(false)
-
 	const showBurger = () => {
 		if (window.innerWidth >= 680) {
 			setIsOpened(false)
@@ -28,11 +26,6 @@ const Navbar = observer(() => {
 	useEffect(() => {
 		showBurger()
 	}, [])
-
-	const handleLogout = () => {
-		userStore.logout()
-		closeBurger()
-	}
 
 	window.addEventListener('resize', showBurger)
 

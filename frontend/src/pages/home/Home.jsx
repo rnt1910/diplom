@@ -11,10 +11,9 @@ import prof from '../../assets/prof.png'
 import courses from '../../assets/courses.png'
 import education from '../../assets/education.png'
 import leaders from '../../assets/leaders.png'
-import avatar from '../../assets/ava.jpg'
-
-const feedback =
-	'В целом преподаватель позитивный, не пассует перед трудностями.Но ему всё же следует готовиться к семинарам, и заранее смотреть презентацию(продумывать ход занятия и возможные вопросы), а также выкладывать её для студентов на платформе.Не хватало условия задач перед глазами, при их решении на семинаре.Интересная и необычная фича - это правила клуба)'
+import avatar1 from '../../assets/avatar1.png'
+import avatar2 from '../../assets/avatar2.png'
+import avatar3 from '../../assets/avatar3.png'
 
 import styles from './Home.module.sass'
 import Footer from '../../layout/footer/Footer'
@@ -129,19 +128,25 @@ function Home() {
 
 							<div className={styles.feedback}>
 								<Feedback
-									image={avatar}
-									title={'Пользователь'}
-									description={feedback}
+									image={avatar1}
+									title={'Александр'}
+									description={
+										'Очень интересно было посмотреть на такое интервью-обучение.'
+									}
 								/>
 								<Feedback
-									image={avatar}
-									title={'Пользователь'}
-									description={feedback}
+									image={avatar2}
+									title={'Ярослав'}
+									description={
+										'В целом преподаватель позитивный, не пассует перед трудностями.Но ему всё же следует готовиться к семинарам, и заранее смотреть презентацию(продумывать ход занятия и возможные вопросы), а также выкладывать её для студентов на платформе.Не хватало условия задач перед глазами, при их решении на семинаре.Интересная и необычная фича - это правила клуба)'
+									}
 								/>
 								<Feedback
-									image={avatar}
-									title={'Пользователь'}
-									description={feedback}
+									image={avatar3}
+									title={'Дмитрий'}
+									description={
+										'Курс понравился, информация была понятна и в доступной форме. Спасибо большое  за курс. И огромное спасибо'
+									}
 								/>
 							</div>
 						</div>

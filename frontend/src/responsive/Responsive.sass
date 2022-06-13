@@ -1,5 +1,9 @@
 =responsive($media)
 
+    @if $media == small-screen
+        @media only screen and (max-width: 2399px)
+            @content
+
     @if $media == big-tablet
         @media only screen and (max-width: 1400px)
             @content

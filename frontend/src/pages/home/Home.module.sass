@@ -4,6 +4,10 @@
     display: flex
     flex-direction: column
     align-items: center
+    +responsive(mobile)
+        margin-top: 250px
+    +responsive(small-mobile)
+        margin-top: 200px
 
     .container
         width: 80%
@@ -44,6 +48,7 @@
                 +responsive(mobile)
                     flex-direction: column
 
+
         .content
             background: white
             box-shadow: 0 -5px 30px rgba(0,0,0,0.3)
@@ -52,6 +57,7 @@
             justify-content: center
             align-items: center
             border-radius: 30px
+            margin-top: 150px
 
 
             .description

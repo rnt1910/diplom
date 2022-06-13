@@ -1,0 +1,23 @@
+@import "../../responsive/Responsive"
+	
+.container
+	margin-top: 200px
+	display: flex
+	justify-content: center
+	align-items: center
+
+	.content
+		width: 1000px
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-direction: column
+		
+		.title
+			text-align: center
+
+		.counters
+			display: flex
+			flex-direction: row
+			+responsive(mobile)
+				flex-direction: column
