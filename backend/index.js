@@ -8,7 +8,6 @@ const router = require('./routes')
 const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 
 const PORT = process.env.PORT || 80
-const HOSTNAME = process.env.DB_HOST
 
 app.use(express.json())
 app.use(
@@ -25,7 +24,7 @@ const start = async () => {
 	try {
 		await sequelize.authenticate()
 		await sequelize.sync()
-		app.listen(PORT, HOSTNAME, () =>
+		app.listen(80, () =>
 			console.log(`Server started on port: ${PORT}`.bgGreen.black)
 		)
 	} catch (error) {
