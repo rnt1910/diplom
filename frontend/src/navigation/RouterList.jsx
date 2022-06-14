@@ -17,6 +17,7 @@ import Registration from '../pages/regisatration/Registration'
 import CoursePage from '../pages/course_page/CoursePage'
 import AdminRoute from './AdminRoute'
 import AdminPanel from '../pages/admin/AdminPanel'
+import Statistics from '../pages/statistics/Statistics'
 
 const RouterList = observer(() => {
 	const { userStore } = useContext(Context)
@@ -79,6 +80,16 @@ const RouterList = observer(() => {
 					<PrivateRoute>
 						<AdminRoute>
 							<AdminPanel />
+						</AdminRoute>
+					</PrivateRoute>
+				}
+			/>
+			<Route
+				path={'/courses/statistics'}
+				element={
+					<PrivateRoute>
+						<AdminRoute>
+							<Statistics />
 						</AdminRoute>
 					</PrivateRoute>
 				}

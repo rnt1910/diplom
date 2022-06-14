@@ -31,17 +31,28 @@ const imageUpload = multer({
 router.get('/', CourseController.getAllCourses)
 router.get('/user/courses', AuthMiddleware, CourseController.getUserCourses)
 router.get('/:course/add', AuthMiddleware, CourseController.addCourseToUser)
-router.post('/add', imageUpload.single('image'), async (req, res) => {
-	const { title, description, video } = req.body
-	const course = await Course.create({
-		title,
-		video,
-		description,
-		preview: req.file.filename,
-	})
-	return res.json(course)
-})
+router.post(
+	'/add',
+	AuthMiddleware,
+	imageUpload.single('image'),
+	async (req, res) => {
+		const { title, description, video } = req.body
+		const course = await Course.create({
+			authorId: req.user.id,
+			title,
+			video,
+			description,
+			preview: req.file.filename,
+		})
+		return res.json(course)
+	}
+)
 router.get('/:id', CourseController.getCourse)
 router.get('/:id/remove', AuthMiddleware, CourseController.removeCourse)
+router.get(
+	'/get-admins-courses/stats',
+	AuthMiddleware,
+	CourseController.getAdminCourses
+)
 
 module.exports = router

@@ -21,13 +21,14 @@ const Course = sequelize.define(
 		video: { type: DataTypes.STRING, allowNull: false },
 		description: { type: DataTypes.STRING, allowNull: false },
 		preview: { type: DataTypes.STRING, allowNull: false },
+		authorId: { type: DataTypes.INTEGER },
 	},
 	{ timestamps: false }
 )
 
 const UserCourse = sequelize.define('userCourse', {}, { timestamps: false })
 
-User.belongsToMany(Course, { through: UserCourse })
+User.belongsToMany(Course, { through: UserCourse, foreignKey: 'userId' })
 Course.belongsToMany(User, { through: UserCourse })
 
 module.exports = {

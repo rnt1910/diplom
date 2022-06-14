@@ -67,4 +67,14 @@ export default class UserStore {
 			console.log(error.message)
 		}
 	}
+
+	async changeUsername(username) {
+		try {
+			const { data } = await $authHost.post('api/user/update', { username })
+			this.setUser(data)
+			return data
+		} catch (error) {
+			console.log(error.message)
+		}
+	}
 }

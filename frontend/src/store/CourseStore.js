@@ -5,6 +5,7 @@ export default class CourseStore {
 	courses = []
 	userCourses = []
 	course = {}
+	statistics = []
 
 	constructor() {
 		makeAutoObservable(this)
@@ -12,6 +13,10 @@ export default class CourseStore {
 
 	setCourses(courses) {
 		this.courses = courses
+	}
+
+	setStatistics(stats) {
+		this.statistics = stats
 	}
 
 	setUserCourses(userCourses) {
@@ -79,6 +84,18 @@ export default class CourseStore {
 			await $authHost.get(`api/courses/id/remove?id=${id}`)
 			this.setUserCourses(this.userCourses.filter(item => item.id != id))
 			return this.userCourses
+		} catch (error) {
+			console.log(error.message)
+		}
+	}
+
+	async getCreatedByAdminCourses(id) {
+		try {
+			const { data } = await $authHost.get(
+				'api/courses/get-admins-courses/stats'
+			)
+			this.setStatistics(data)
+			return data
 		} catch (error) {
 			console.log(error.message)
 		}

@@ -23,15 +23,24 @@ class CourseController {
 	async addCourseToUser(req, res, next) {
 		const { id } = req.query
 		const course = await Course.findByPk(id)
-		await course.setUsers(req.user.id)
+		const prevUsers = await course.getUsers()
+		await course.setUsers([...prevUsers, req.user.id])
 		return res.json(course)
 	}
 
 	async removeCourse(req, res, next) {
 		const { id } = req.query
-		await UserCourse.destroy({ where: { courseId: id } }).then(() =>
-			res.json('success')
-		)
+		await UserCourse.destroy({
+			where: { courseId: id, userId: req.user.id },
+		}).then(() => res.json('success'))
+	}
+
+	async getAdminCourses(req, res, next) {
+		const courses = await Course.findAll({
+			where: { authorId: req.user.id },
+			include: User,
+		})
+		return res.json(courses)
 	}
 }
 

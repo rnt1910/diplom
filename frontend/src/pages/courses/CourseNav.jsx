@@ -24,6 +24,20 @@ function CourseNav() {
 				<h3 className={styles.email}>{user.email}</h3>
 				<hr />
 				{user.role === 'admin' && (
+					<Link to='/courses/statistics' className={styles.link}>
+						<h2
+							className={styles.text}
+							style={
+								pathname === '/courses/statistics'
+									? { fontWeight: 700 }
+									: { fontWeight: 100 }
+							}
+						>
+							Статистика
+						</h2>
+					</Link>
+				)}
+				{user.role === 'admin' && (
 					<Link to='/courses/dashboard' className={styles.link}>
 						<h2
 							className={styles.text}
@@ -37,6 +51,7 @@ function CourseNav() {
 						</h2>
 					</Link>
 				)}
+
 				<Link to='/courses' className={styles.link}>
 					<h2
 						className={styles.text}
@@ -49,6 +64,7 @@ function CourseNav() {
 						Все курсы
 					</h2>
 				</Link>
+
 				<Link to='/courses/study' className={styles.link}>
 					<h2
 						className={styles.text}
@@ -61,6 +77,7 @@ function CourseNav() {
 						Обучение
 					</h2>
 				</Link>
+
 				<Link to='/courses/settings' className={styles.link}>
 					<h2
 						className={styles.text}
