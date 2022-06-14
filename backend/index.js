@@ -6,8 +6,9 @@ const cors = require('cors')
 const sequelize = require('./db')
 const router = require('./routes')
 const errorHandler = require('./middleware/ErrorHandlingMiddleware')
+const { config } = require('./config')
 
-const PORT = process.env.PORT || 80
+const PORT = config.PORT
 
 app.use(express.json())
 app.use(
